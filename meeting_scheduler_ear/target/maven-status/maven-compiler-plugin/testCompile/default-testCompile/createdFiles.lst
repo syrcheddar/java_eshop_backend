@@ -1,0 +1,14 @@
+cz\cvut\kbss\ear\meeting_scheduler\dao\UserAccountDaoTest.class
+cz\cvut\kbss\ear\meeting_scheduler\environment\Environment.class
+cz\cvut\kbss\ear\meeting_scheduler\security\DefaultAuthenticationProviderTest.class
+cz\cvut\kbss\ear\meeting_scheduler\service\TeamServiceTest.class
+cz\cvut\kbss\ear\meeting_scheduler\dao\TeamDaoTest.class
+cz\cvut\kbss\ear\meeting_scheduler\service\UserAccountServiceTest.class
+cz\cvut\kbss\ear\meeting_scheduler\service\MeetingOfferServiceTest.class
+cz\cvut\kbss\ear\meeting_scheduler\environment\Generator.class
+cz\cvut\kbss\ear\meeting_scheduler\model\TeamTest.class
+cz\cvut\kbss\ear\meeting_scheduler\dao\BaseDaoTest.class
+cz\cvut\kbss\ear\meeting_scheduler\environment\TestConfiguration.class
+cz\cvut\kbss\ear\meeting_scheduler\dao\MeetingDaoTest.class
+cz\cvut\kbss\ear\meeting_scheduler\service\TeamMemberServiceTest.class
+cz\cvut\kbss\ear\meeting_scheduler\security\AuthenticationFailureTest.class

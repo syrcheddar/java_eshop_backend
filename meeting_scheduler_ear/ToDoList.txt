@@ -1,0 +1,22 @@
+*CHECKED* Opravit teammember service - využívat ostatní servicy --BEN
+
+*CHECKED* Přejmenovat respondToFeedBack na CreateFeedBack - je to confusing --BEN
+
+*CHECKED* zkontrolovat servicy a dopsat zbívající - aby tam byly všechny funkcionality --BEN
+
+Používá persistentní vrstvu, navrženou a schválenou v rámci checkpointu 1, obohacenou o alespoň tři z následujících technik/funkcí:
+*CHECKED*     - Ordering (uspořádání kolekce podle atributu - @OrderBy), --PROKOP
+    - Pojmenované dotazy (@NamedQuery), --PROKOP
+    - Mapování výsledků JPQL/native dotazu (@SqlResultSetMapping), --PROKOP
+
+Využít transakční zpracování,?? -- PROKOP
+
+REST -- PROKOP, BEN
+
+SECURITY --BEN
+
+Integrace s REST rozhraním ukázkového projektu (tedy konzumací REST rozhraní e-shop aplikace), --BEN
+
+dopsat testy na servicy a jiný srajdy
+
+zpráva o projektu

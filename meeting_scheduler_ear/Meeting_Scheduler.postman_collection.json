@@ -1,0 +1,631 @@
+{
+	"info": {
+		"_postman_id": "414bbf2d-a603-41a6-a59d-f8b3d36c2432",
+		"name": "Meeting Scheduler",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Account",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "test",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "heslo1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": null,\r\n    \"username\": \"test3\",\r\n    \"password\": \"heslo3\",\r\n    \"email\": \"email3@email.com\",\r\n    \"teamMemberships\": [],\r\n    \"blocked\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/meeting_scheduler_ear/rest/user_account",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"meeting_scheduler_ear",
+						"rest",
+						"user_account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Account",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "b4ef9e1d-3958-4019-8f77-6386be0808c1",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "password",
+							"value": "heslo3",
+							"type": "default"
+						},
+						{
+							"key": "username",
+							"value": "test3",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/meeting_scheduler_ear/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"meeting_scheduler_ear",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show Account",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/meeting_scheduler_ear/current",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"meeting_scheduler_ear",
+						"current"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Team",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "team15",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/meeting_scheduler_ear/rest/team/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"meeting_scheduler_ear",
+						"rest",
+						"team",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete team",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "b4ef9e1d-3958-4019-8f77-6386be0808c1",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "team16",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/meeting_scheduler_ear/rest/team/dissolve",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"meeting_scheduler_ear",
+						"rest",
+						"team",
+						"dissolve"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Team Members",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "team15"
+				},
+				"url": {
+					"raw": "http://localhost:8080/meeting_scheduler_ear/team_members",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"meeting_scheduler_ear",
+						"team_members"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Member",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "test2",
+							"type": "default"
+						},
+						{
+							"key": "teamRole",
+							"value": "MEMBER",
+							"type": "default"
+						},
+						{
+							"key": "teamName",
+							"value": "team15",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/meeting_scheduler_ear/rest/team/add_member",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"meeting_scheduler_ear",
+						"rest",
+						"team",
+						"add_member"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Kick Member",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "teamName",
+							"value": "team15",
+							"type": "default"
+						},
+						{
+							"key": "userToKick",
+							"value": "test2",
+							"type": "default"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/meeting_scheduler_ear/rest/team/kick_member",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"meeting_scheduler_ear",
+						"rest",
+						"team",
+						"kick_member"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change role",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "teamName",
+							"value": "team15",
+							"type": "default"
+						},
+						{
+							"key": "teamRole",
+							"value": "MAINTAINER",
+							"type": "default"
+						},
+						{
+							"key": "username",
+							"value": "test2",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/meeting_scheduler_ear/rest/team/change_role",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"meeting_scheduler_ear",
+						"rest",
+						"team",
+						"change_role"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Kick maintainer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "teamName",
+							"value": "team15",
+							"type": "default"
+						},
+						{
+							"key": "userToKick",
+							"value": "test2",
+							"type": "default"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/meeting_scheduler_ear/rest/team/kick_maintainer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"meeting_scheduler_ear",
+						"rest",
+						"team",
+						"kick_maintainer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create meeting offer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "teamName",
+							"value": "team15",
+							"type": "default"
+						},
+						{
+							"key": "dateS",
+							"value": "2022-11-12",
+							"type": "default"
+						},
+						{
+							"key": "timeFrom",
+							"value": "12:30:00",
+							"type": "default"
+						},
+						{
+							"key": "timeTo",
+							"value": "13:00:00",
+							"type": "default"
+						},
+						{
+							"key": "location",
+							"value": "Praha",
+							"type": "default"
+						},
+						{
+							"key": "description",
+							"value": "Deskripce",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/meeting_scheduler_ear/rest/meeting/meeting_offer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"meeting_scheduler_ear",
+						"rest",
+						"meeting",
+						"meeting_offer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Meeting Offer",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "teamName",
+							"value": "team15",
+							"type": "default"
+						},
+						{
+							"key": "meetingOfferId",
+							"value": "551",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/meeting_scheduler_ear/rest/meeting/cancel_meeting_offer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"meeting_scheduler_ear",
+						"rest",
+						"meeting",
+						"cancel_meeting_offer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Meeting",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "teamName",
+							"value": "team15",
+							"type": "default"
+						},
+						{
+							"key": "meetingOfferID",
+							"value": "601",
+							"type": "default"
+						},
+						{
+							"key": "meetingOptionID",
+							"value": "602",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/meeting_scheduler_ear/rest/meeting/meeting_offer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"meeting_scheduler_ear",
+						"rest",
+						"meeting",
+						"meeting_offer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Meeting",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "teamName",
+							"value": "team15",
+							"type": "default"
+						},
+						{
+							"key": "meetingID",
+							"value": "806",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/meeting_scheduler_ear/rest/meeting/cancel_meeting",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"meeting_scheduler_ear",
+						"rest",
+						"meeting",
+						"cancel_meeting"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateFeedback",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "teamName",
+							"value": "team15",
+							"type": "default"
+						},
+						{
+							"key": "meetingOfferID",
+							"value": "601",
+							"type": "default"
+						},
+						{
+							"key": "comment",
+							"value": "tvoje_mama",
+							"type": "default"
+						},
+						{
+							"key": "rating",
+							"value": "NEUTRAL",
+							"type": "default"
+						},
+						{
+							"key": "meetingOptionID",
+							"value": "602",
+							"type": "default"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/meeting_scheduler_ear/rest/team/feedback",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"meeting_scheduler_ear",
+						"rest",
+						"team",
+						"feedback"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
